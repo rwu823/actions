@@ -17,3 +17,4 @@ runs:
         cache: yarn
         cache-dependency-path: yarn.lock
     - run: yarn install
+      shell: bash
