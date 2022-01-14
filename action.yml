@@ -1,0 +1,22 @@
+name: The node and yarn initialize environment
+description: Node and Yarn initialize environment. it includes checkout@v2 and yarn install for caching.
+
+inputs:
+  nodeVersion:
+    description: node version
+    required: false
+    default: 16
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: ${{ inputs.nodeVersion }}
+        cache: yarn
+        cache-dependency-path: yarn.lock
+    - run: |
+        yarn -v
+        yarn install
+      shell: bash
