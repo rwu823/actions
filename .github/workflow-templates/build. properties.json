@@ -1,7 +1,0 @@
-{
-  "name": "Build Workflow",
-  "description": "Basic building workflows",
-  "filePatterns": [
-      "package.json"
-  ]
-}

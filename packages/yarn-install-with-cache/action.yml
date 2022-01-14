@@ -16,5 +16,7 @@ runs:
         node-version: ${{ inputs.nodeVersion }}
         cache: yarn
         cache-dependency-path: yarn.lock
-    - run: yarn install
+    - run: |
+        yarn -v
+        yarn install
       shell: bash
