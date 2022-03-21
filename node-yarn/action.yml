@@ -1,5 +1,5 @@
 name: The node and yarn initialize environment
-description: Node and Yarn initialize environment. it includes checkout@v2 and yarn install for caching.
+description: Node and Yarn initialize environment. it includes checkout@v2 and yarn install caching.
 
 inputs:
   nodeVersion:
@@ -17,7 +17,6 @@ runs:
       with:
         node-version: ${{ inputs.nodeVersion }}
         cache: yarn
-        # cache-dependency-path: yarn.lock
     - run: |
         yarn -v
         yarn install
