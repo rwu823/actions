@@ -10,7 +10,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: ./node-yarn@latest
+    - uses: ./node-yarn
     - name: Run ESLint for only modified files.
-      run: yarn ${{ inputs.lintScript }} $(git diff --diff-filter=d origin/HEAD --name-only --cached '*.ts' '*.tsx' '*.js' '*.cjs' '*.mjs')
       shell: bash
+      run: yarn ${{ inputs.lintScript }} $(git diff --diff-filter=d origin/HEAD --name-only --cached '*.ts' '*.tsx' '*.js' '*.cjs' '*.mjs')
