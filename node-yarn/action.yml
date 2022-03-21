@@ -10,14 +10,15 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 2
-    - uses: actions/setup-node@v2
+    - uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.nodeVersion }}
         cache: yarn
     - run: |
+        node -v
         yarn -v
         yarn install
       shell: bash
