@@ -1,0 +1,27 @@
+name: The node and yarn initialize environment
+description: Node and Yarn initialize environment. it includes checkout@v2 and yarn install caching.
+
+inputs:
+  nodeVersion:
+    description: node version
+    required: false
+    default: 16
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 2
+    - uses: pnpm/action-setup@v2.2.1
+      with:
+        version: '6.32.3'
+    - uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.nodeVersion }}
+        cache: pnpm
+    - run: |
+        node -v
+        pnpm -v
+        pnpm install
+      shell: bash
